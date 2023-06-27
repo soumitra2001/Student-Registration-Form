@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title> Student Registration Form </title>
-        <!--<link rel="stylesheet" href="style.css">-->
+        <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="http://login2explore.com/jpdb/resources/js/0.0.4/jpdb-commons.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -12,54 +12,52 @@
     <body>
         <div class="container">
             <div class="title">Student Registration</div>
-            <div class="content">
                 <form action="" method="post">
                     <div class="user-details">
                         <div class="input-box">
-                            <span class="details">Full Name</span>
+                            <label for="name">Full Name</label>
                             <input type="text" name="name" placeholder="Enter your name" required>
                         </div>
                         <div class="input-box">
-                            <span class="details">Roll No</span>
+                            <label for="rollno">Roll No</label>
                             <input type="text" name="rollno" placeholder="Enter your rollno" required>
                         </div>
                         <div class="input-box">
-                            <span class="details">Class</span>
+                            <label for="stuClass">Class</label>
                             <input type="text" name="stuClass" placeholder="Enter your class" required>
                         </div>
                         <div class="input-box">
-                            <span class="details">Date of Birth</span>
+                            <label for="dob">Date of Birth</label>
                             <input type="date" name="dob" required>
                         </div>
                         <div class="input-box">
-                            <span class="details">Enrollment Date</span>
+                            <label for="enroll_date">Enrollment Date</label>
                             <input type="date" name="enroll_date" required>
                         </div>
                         <div class="input-box">
-                            <span class="details">Address</span>
+                            <label for="address">Address</label>
                             <input type="text" name="address" placeholder="Enter your address" required>
                         </div>
                     </div>
-<!--                    <div class="gender-details">
-                        <input type="radio" name="gender" id="dot-1">
-                        <input type="radio" name="gender" id="dot-2">
-                        <span class="gender-title">Gender</span>
-                        <div class="category">
-                            <label for="dot-1">
-                                <span class="dot one"></span>
-                                <span>Male</span>
-                            </label>
-                            <label for="dot-2">
-                                <span class="dot two"></span>
-                                <span>Female</span>
-                            </label>
-                        </div>
-                    </div>-->
+                    <!--                    <div class="gender-details">
+                                            <input type="radio" name="gender" id="dot-1">
+                                            <input type="radio" name="gender" id="dot-2">
+                                            <label class="gender-title">Gender</label>
+                                            <div class="category">
+                                                <label for="dot-1">
+                                                    <label class="dot one"></label>
+                                                    <label>Male</label>
+                                                </label>
+                                                <label for="dot-2">
+                                                    <label class="dot two"></label>
+                                                    <label>Female</label>
+                                                </label>
+                                            </div>
+                                        </div>-->
                     <div class="button">
                         <input type="submit" value="save" onclick="saveStudent();">
                     </div>
                 </form>
-            </div>
         </div>
         <script>
 

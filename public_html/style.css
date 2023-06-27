@@ -35,7 +35,7 @@ body{
     border-radius: 5px;
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
-.content form .user-details{
+form .user-details{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -45,7 +45,7 @@ form .user-details .input-box{
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
 }
-form .input-box span.details{
+form .input-box span{
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
@@ -130,7 +130,7 @@ form .button input:hover{
     form .category{
         width: 100%;
     }
-    .content form .user-details{
+    form .user-details{
         max-height: 300px;
         overflow-y: scroll;
     }
@@ -139,7 +139,7 @@ form .button input:hover{
     }
 }
 @media(max-width: 459px){
-    .container .content .category{
+    .container .category{
         flex-direction: column;
     }
 }
