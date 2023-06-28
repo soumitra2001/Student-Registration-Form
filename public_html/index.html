@@ -13,10 +13,10 @@
     <body>
         <div class="container">
             <div class="title">Student Registration</div>
-            <form id="stuForm" method="post">
+            <form id="stuForm" method="get">
                 <div class="form-group">
                     <span><label for="name">Student Name</label><label id="stuNameMsg"></label></span>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Student Name is Required Value" required>
+                    <input type="text" class="form-control" name="name" id="name" onchange="getStudent()" placeholder="Student Name is Required Value" required>
                 </div>
                 <div class="form-group">
                     <label for="stuRollno">Roll No</label>
@@ -40,8 +40,8 @@
                 </div>
                 <div class="form-group text-center">
                     <button type="button" class="btn" id="save" onclick="saveStudent()" disabled>Save</button>
-                    <button type="button" class="btn" id="update" onclick="saveStudent()" disabled>Update</button>
-                    <button type="button" class="btn" id="reset" onclick="saveStudent()" disabled>Reset</button>
+                    <button type="button" class="btn" id="update" onclick="updateData()" disabled>Update</button>
+                    <button type="button" class="btn" id="reset" onclick="resetForm()" disabled>Reset</button>
                 </div>
             </form>
         </div>

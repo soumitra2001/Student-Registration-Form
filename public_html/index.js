@@ -5,6 +5,31 @@ var jpdbIML="/api/iml";
 var dbName="School-DB";
 var relName="Student-Table";
 var connToken="90933111|-31949318232646512|90951200";
+
+function getStuRollAsJsonObj(){
+    var stuRollno=$("#stuRollno").val();
+    var jsonStr = {
+        "Roll No" : stuRollno
+    };
+    
+    return JSON.stringify(jsonStr);
+}
+
+function fillData(jsonObj){
+    saveRecNo2LS(jsonObj);
+    var record = JSON.parse(jsonObj.data).record;
+    $("#name").val(record.name);
+    $("#stuClass").val(record.stuClass);
+    $("#dob").val(record.dob);
+    $("#enroll_date").val(record.enroll_date);
+    $("#address").val(record.address);
+}
+
+function saveRecNo2LS(jsonObj){
+    var record=JSON.parse(jsonObj.data);
+    localStorage.setItem("recNo",record.rec_no);
+}
+
 function validateAndGetFormateData() {
     var stuName = $("#name").val();
     if (stuName === "") {
@@ -68,6 +93,10 @@ function resetForm() {
     $("#dob").val("");
     $("#enroll_date").val("");
     $("#address").val("");
+    $("#name").prop("disabled", false);
+    $("#save").prop("disabled", true);
+    $("#update").prop("disabled", true);
+    $("#reset").prop("disabled", true);
     $("#name").focus();
 }
 
@@ -91,12 +120,33 @@ function saveStudent() {
 function updateData(){
     $("#update").prop("disabled",true);
     var jsonUpdatedData=validateAndGetFormateData();
-    var updateRequest=creatUpdateRequest(connToken, jsonUpdatedData,dbName,relName);
+    var updateRequest=createUPDATERecordRequest(connToken, jsonUpdatedData,dbName,relName,localStorage.getItem("recNo"));
     jQuery.ajaxSetup({async: false});
     var resJsonObj = executeCommandAtGivenBaseUrl(updateRequest, jpdbBaseURL, jpdbIML);
     jQuery.ajaxSetup({async: true});
+    console.log(resJsonObj);
     
     resetForm();
+}
+
+function getStudent(){
+    var stuRollJsonObj = getStuRollAsJsonObj();
+    var getRequest = createGET_BY_KEYRequest(connToken,dbName,relName,stuRollJsonObj);
+    jQuery.ajaxSetup({async: false});
+    var resJsonObj = executeCommandAtGivenBaseUrl(getRequest,jpdbBaseURL,jpdbIRL);
+    jQuery.ajaxSetup({async: true});
+    if(resJsonObj.status===400){
+        $("#save").prop("disabled", false);
+        $("#reset").prop("disabled", false);
+        $("#name").focus();
+    }else if(resJsonObj.status === 200){
+        $("#stuRollno").prop("disabled", true);
+        fillData(resJsonObj);
+        
+        $("#update").prop("disabled", false);
+        $("#reset").prop("disabled", false);
+        $("#name").focus();
+    }
 }
 
 
