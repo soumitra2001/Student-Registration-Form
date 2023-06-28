@@ -139,7 +139,7 @@ Overall, this project will demonstrate the integration of HTML, CSS, JavaScript,
 
 ### Student Registration Form Screenshots:
 ![](/nbproject/Form.png)
-![](/nbproject/DataBase_DashBoard.png)
+![](/nbproject/DataBase_Dashboard.png)
 
 
 ## Contribution
